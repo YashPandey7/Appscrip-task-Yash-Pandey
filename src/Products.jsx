@@ -1,21 +1,5 @@
-// import React from 'react'
-
-// const Products = ({item}) => {
-//   return (
-//     <>
-//         <div>
-//             <img src={item?.image} alt="product image"/>
-//             <h3>{item?.title}</h3>
-//             <p>Sign in or Create an account to see pricing</p>
-//         </div>
-//     </>
-//   )
-// }
-
-// export default Products
-
 import React from 'react';
-import { FaHeart } from 'react-icons/fa'; // Make sure to install react-icons
+import { FaHeart } from 'react-icons/fa';
 
 const Products = ({ item }) => {
   return (

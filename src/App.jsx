@@ -3,6 +3,7 @@ import Products from './Products';
 import axios from 'axios';
 import Navbar from './Navbar';
 import PageTitle from './PageTitle';
+import Filter from './Filter';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -26,8 +27,13 @@ const App = () => {
       <div className="container">
         <Navbar/>
         <PageTitle/>
-
-        {data.map((item) => <Products key={item.id} item={item}/>)}
+        
+        <div style={{display : "flex"}}>
+          <Filter />
+          <div>
+            {data.map((item) => <Products key={item.id} item={item}/>)}
+          </div>
+        </div>
       </div>
     </>
   )
