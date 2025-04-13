@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import './Recommendation.css';
+import { useMediaQuery } from 'react-responsive';
 
 const Recommendation = ({show, setShow}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selected, setSelected] = useState('RECOMMENDED');
+  const isMobile = useMediaQuery({ maxWidth: 600 });
 
   const options = [
     'RECOMMENDED',
@@ -20,12 +22,19 @@ const Recommendation = ({show, setShow}) => {
 
   return (
     <div className="recommendation-bar">
-      <div className="left-section">
+
+      {isMobile ? (
+          <h3>FILTER</h3>
+      ): (
+        <div className="left-section">
         <strong>3425 ITEMS</strong>
         <span className="hide-filter" onClick={() => setShow(!show)}>
           {show ? '< HIDE FILTER' : '> SHOW FILTER'}
         </span>
-      </div>
+      </div> 
+      )}
+
+      
 
       <div 
         className="dropdown-wrapper"

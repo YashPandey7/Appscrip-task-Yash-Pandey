@@ -77,3 +77,15 @@
     font-size: 12px;
   }
   
+
+  @media (max-width: 768px) {
+    .recommendation-bar{
+      padding: 12px 16px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .recommendation-bar{
+      padding: 6px 16px;
+    }
+  }

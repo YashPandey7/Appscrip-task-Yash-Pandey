@@ -36,17 +36,7 @@ const App = () => {
         <Navbar />
         <PageTitle />
 
-        {isMobile && (
-          <div className="mobile-toggle-buttons">
-            <button onClick={() => setShowFilter(prev => !prev)}>
-              {showFilter ? "Hide Filter" : "Show Filter"}
-            </button>
-            <button>Recommendation</button>
-          </div>
-        )}
-        {!isMobile && (
-          <Recommendation show={showFilter} setShow={setShowFilter}/>
-        )}
+        <Recommendation show={showFilter} setShow={setShowFilter}/>
 
         <div className={`main-content ${showFilter ? 'filter-visible' : ''}`}>
           {showFilter && !isMobile && (

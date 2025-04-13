@@ -1,18 +1,102 @@
-.navbar{
+.navbar {
     display: flex;
     justify-content: space-between;
-}
+    align-items: center;
+    padding: 12px 24px;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    background: #fff;
+  }
+  
 
-.logo{
+  .left-section {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+  
+  .right-section {
+    display: flex;
+    align-items: center;
+  }
+  
+
+  .brand-logo {
+    width: 30px;
+  }
+  
+  .logo {
     font-size: 25px;
-}
+    text-align: center;
+  }
+  
 
-.icons{
-    padding-left : 10px;
-}
+  .icons {
+    padding-left: 10px;
+    width: 20px;
+    height: 20px;
+  }
+  
 
-.nav-links{
+  .nav-links {
     list-style: none;
     display: flex;
     justify-content: center;
-}
+    gap: 20px;
+    padding: 15px 0;
+    margin: 0;
+    border-top: 1px solid #eee;
+  }
+  
+  .nav-links li {
+    font-weight: bold;
+  }
+  
+
+  .hamburger {
+    display: none;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+  }
+  
+
+  @media (max-width: 768px) {
+    .navbar{
+        padding: 12px 10px;
+    }
+
+    .nav-links {
+      display: none;
+      flex-direction: column;
+      text-align: left;
+      padding-left: 24px;
+      background-color: #fff;
+    }
+  
+    .nav-links.show {
+      display: flex;
+    }
+  
+    .hamburger {
+      display: block;
+    }
+    
+    .language, .profile{
+        display: none;
+    }
+
+    .nav-links li {
+      padding: 10px 0;
+    }
+  
+    .logo {
+      font-size: 20px;
+      flex-grow: 1;
+    }
+  
+    .right-section {
+      gap: 8px;
+    }
+  }
+  
