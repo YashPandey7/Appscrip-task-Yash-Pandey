@@ -32,9 +32,9 @@ const Navbar = () => {
           <img className='icons profile' src='./assets/profile.svg' alt='profile' />
           <img className='icons language' src='./assets/Language.svg' alt='language' />
         </div>
-      </div>
+      </div> 
 
-      <ul className={`nav-links ${isMenuOpen ? 'show' : ''}`}>
+      <ul className={`nav-links ${isMenuOpen ? 'show' : ''}`}> 
         <li>SHOP</li>
         <li>SKILLS</li>
         <li>STORIES</li>

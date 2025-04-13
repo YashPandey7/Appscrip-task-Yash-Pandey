@@ -29,7 +29,8 @@ const Recommendation = ({show, setShow}) => {
         <div className="left-section">
         <strong>3425 ITEMS</strong>
         <span className="hide-filter" onClick={() => setShow(!show)}>
-          {show ? '< HIDE FILTER' : '> SHOW FILTER'}
+          {/* {show ? '< HIDE FILTER' : '> SHOW FILTER'} */}
+          {show ? '\u003C HIDE FILTER' : '\u003E SHOW FILTER'}
         </span>
       </div> 
       )}
