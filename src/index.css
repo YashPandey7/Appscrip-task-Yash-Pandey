@@ -1,4 +1,52 @@
 body{
     font-family: 'Simplon Norm', sans-serif;
-    padding: 35px 50px;
+    margin: 0px;
 }
+  
+.container{
+  padding: 35px 50px;
+}
+
+.main-content {
+    display: flex;
+    gap: 16px;
+  }
+  
+  /* Show filter only on larger screens */
+  .filter-section {
+    width: 20%;
+  }
+  
+  .product-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    flex: 1;
+  }
+  
+  .product-container > div {
+    width: calc(33.33% - 16px); /* 3 cards per row */
+  }
+  
+  /* On screens <= 768px, hide the filter and show 2 cards per row */
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+  
+    .filter-section {
+      display: none;
+    }
+  
+    .product-container > div {
+      width: calc(50% - 16px); /* 2 cards per row */
+    }
+  }
+  
+  /* Optional: 1 card per row on very small screens */
+  @media (max-width: 480px) {
+    .product-container > div {
+      width: 100%;
+    }
+  }
+  

@@ -4,6 +4,8 @@ import axios from 'axios';
 import Navbar from './Navbar';
 import PageTitle from './PageTitle';
 import Filter from './Filter';
+import Recommendation from './Recommendation';
+import Footer from './Footer';
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -28,13 +30,18 @@ const App = () => {
         <Navbar/>
         <PageTitle/>
         
-        <div style={{display : "flex"}}>
-          <Filter />
-          <div>
-            {data.map((item) => <Products key={item.id} item={item}/>)}
+        <Recommendation/>
+        <div className="main-content">
+          <div className="filter-section">
+            <Filter />
+          </div>
+          <div className="product-container">
+            {data.map((item) => <Products key={item.id} item={item} />)}
           </div>
         </div>
+
       </div>
+      <Footer/>
     </>
   )
 }
