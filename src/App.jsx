@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react'
+
+import React, { useEffect, useState } from 'react';
 import Products from './Products';
 import axios from 'axios';
 import Navbar from './Navbar';
@@ -9,41 +10,61 @@ import Footer from './Footer';
 
 const App = () => {
   const [data, setData] = useState([]);
+  const [showFilter, setShowFilter] = useState(true);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   useEffect(() => {
-    const fetchData = async() => {
-      try{
+    const fetchData = async () => {
+      try {
         const res = await axios.get("https://fakestoreapi.com/products");
-        console.log(res.data);
         setData(res.data);
-      }catch(err){
+      } catch (err) {
         console.log("Error While fetching the data: ", err.message);
       }
-    }
-
+    };
     fetchData();
+
+    const handleResize = () => setIsMobile(window.innerWidth <= 768);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
     <>
       <div className="container">
-        <Navbar/>
-        <PageTitle/>
-        
-        <Recommendation/>
-        <div className="main-content">
-          <div className="filter-section">
-            <Filter />
+        <Navbar />
+        <PageTitle />
+
+        {isMobile && (
+          <div className="mobile-toggle-buttons">
+            <button onClick={() => setShowFilter(prev => !prev)}>
+              {showFilter ? "Hide Filter" : "Show Filter"}
+            </button>
+            <button>Recommendation</button>
           </div>
+        )}
+        {!isMobile && (
+          <Recommendation show={showFilter} setShow={setShowFilter}/>
+        )}
+
+        <div className={`main-content ${showFilter ? 'filter-visible' : ''}`}>
+          {showFilter && !isMobile && (
+            <div className="filter-section">
+              <Filter />
+            </div>
+          )}
+
           <div className="product-container">
-            {data.map((item) => <Products key={item.id} item={item} />)}
+            {data.map((item) => (
+              <Products key={item.id} item={item} />
+            ))}
           </div>
         </div>
-
       </div>
-      <Footer/>
+      <Footer />
     </>
-  )
-}
+  );
+};
 
 export default App;

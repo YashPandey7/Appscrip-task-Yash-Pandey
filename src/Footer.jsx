@@ -1,8 +1,11 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
 
 const Footer = () => {
+    const isMobile = useMediaQuery({ maxWidth: 600 });
+
   return (
-    <footer style={styles.footer}>
+    <footer style={{ ...styles.footer, padding: isMobile ? '40px 20px' : '40px 50px' }}>
       <div style={styles.topSection}>
         <div style={styles.subscribe}>
           <h4 style={styles.heading}>BE THE FIRST TO KNOW</h4>

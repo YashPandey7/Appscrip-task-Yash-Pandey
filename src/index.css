@@ -12,7 +12,6 @@ body{
     gap: 16px;
   }
   
-  /* Show filter only on larger screens */
   .filter-section {
     width: 20%;
   }
@@ -24,11 +23,27 @@ body{
     flex: 1;
   }
   
-  .product-container > div {
-    width: calc(33.33% - 16px); /* 3 cards per row */
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    flex: 1;
   }
   
-  /* On screens <= 768px, hide the filter and show 2 cards per row */
+  .filter-section {
+    width: 20%;
+  }
+  
+  @media (min-width: 1024px) {
+    .main-content.filter-visible .product-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .main-content:not(.filter-visible) .product-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+  
   @media (max-width: 768px) {
     .main-content {
       flex-direction: column;
@@ -38,15 +53,20 @@ body{
       display: none;
     }
   
-    .product-container > div {
-      width: calc(50% - 16px); /* 2 cards per row */
+    .product-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .mobile-toggle-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 1rem;
     }
   }
   
-  /* Optional: 1 card per row on very small screens */
   @media (max-width: 480px) {
-    .product-container > div {
-      width: 100%;
+    .product-container {
+      grid-template-columns: 1fr;
     }
   }
   

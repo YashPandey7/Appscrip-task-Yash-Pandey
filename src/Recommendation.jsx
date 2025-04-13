@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Recommendation.css';
 
-const Recommendation = () => {
+const Recommendation = ({show, setShow}) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const [selected, setSelected] = useState('RECOMMENDED');
 
@@ -22,7 +22,9 @@ const Recommendation = () => {
     <div className="recommendation-bar">
       <div className="left-section">
         <strong>3425 ITEMS</strong>
-        <span className="hide-filter">&lt; HIDE FILTER</span>
+        <span className="hide-filter" onClick={() => setShow(!show)}>
+          {show ? '< HIDE FILTER' : '> SHOW FILTER'}
+        </span>
       </div>
 
       <div 
