@@ -13,12 +13,12 @@ const Navbar = () => {
       <div className='navbar'>
         <div className='left-section'>
           <img
-            src='./assets/menu.svg'
+            src='/assets/menu.svg'
             alt='menu'
             className='hamburger'
             onClick={toggleMenu}
           />
-          <img src='./assets/Logo.svg' alt='logo' className='brand-logo' />
+          <img src='/assets/Logo.svg' alt='logo' className='brand-logo' />
         </div>
 
         <div className='logo'>
@@ -26,11 +26,11 @@ const Navbar = () => {
         </div>
 
         <div className='right-section'>
-          <img className='icons' src='./assets/search-normal.svg' alt='search' />
-          <img className='icons' src='./assets/heart.svg' alt='wishlist' />
-          <img className='icons' src='./assets/shopping-bag.svg' alt='cart' />
-          <img className='icons profile' src='./assets/profile.svg' alt='profile' />
-          <img className='icons language' src='./assets/Language.svg' alt='language' />
+          <img className='icons' src='/assets/search-normal.svg' alt='search' />
+          <img className='icons' src='/assets/heart.svg' alt='wishlist' />
+          <img className='icons' src='/assets/shopping-bag.svg' alt='cart' />
+          <img className='icons profile' src='/assets/profile.svg' alt='profile' />
+          <img className='icons language' src='/assets/Language.svg' alt='language' />
         </div>
       </div> 
 
